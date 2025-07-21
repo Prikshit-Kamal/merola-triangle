@@ -408,7 +408,7 @@ h2.elementor-heading-title.elementor-size-default {
 }
 
 .site-logo img {
-	max-width: 100%;
+	max-width: 54%;
 }
 
 #navigation {
@@ -2669,7 +2669,7 @@ canvas#canvas {
 }
 
 .backImage {
-    background-image: url(../img/servicecricle.png);
+    /* background-image: url(../img/servicecricle.png); */
     background-position: center;
     background-repeat: no-repeat;
     text-align: center;
@@ -3144,7 +3144,7 @@ text-align: center;
     margin-right: 0px!important;
 	}
 	.backImage {
-		background-image: url(../img/bg-service.webp);
+		/* background-image: url(../img/bg-service.webp); */
 		background-position: center;
 		background-repeat: no-repeat;
 		text-align: center;
