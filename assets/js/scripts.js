@@ -97,7 +97,7 @@ Version      : 1.0
 		window.requestAnimationFrame( loop );
 		currentTime = ( new Date() ).getTime();
 		delta = ( currentTime - lastTime ) / 9000;
-		myScroller4.setPerspective( "{ \"rotateY\" : " + 30 * Math.sin( delta ) + "}" );
+		// myScroller4.setPerspective( "{ \"rotateY\" : " + 30 * Math.sin( delta ) + "}" );
 	}
 
 	loop();
