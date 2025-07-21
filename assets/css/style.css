@@ -408,7 +408,9 @@ h2.elementor-heading-title.elementor-size-default {
 }
 
 .site-logo img {
-	max-width: 54%;
+	max-width: 100%;
+	margin-top: -25px;
+  margin-bottom: -44px;
 }
 
 #navigation {
@@ -1976,6 +1978,7 @@ blockquote::before,
 
 .single_footer img {
     width: 150px;
+	margin-top: -25px;
 }
 .footer {
 	padding-bottom: 40px;
@@ -1991,9 +1994,9 @@ blockquote::before,
 	}
 }
 
-.single_footer img {
+/* .single_footer img {
 	margin-bottom: 20px;
-}
+} */
 
 .single_footer h4 {
 	color: #fff;
@@ -3656,4 +3659,22 @@ background: #018efa;
 	font-weight: bolder;
     font-size: 18px;
 	display: inline-block;
+}
+
+.mobile_display_show{
+	display: none;
+}
+
+@media only screen and (max-width:768px) {
+	.mobile_display_hide {
+		display: none !important;
+	}
+
+	.mobile_display_show{
+	display: inherit;
+}
+
+.btn_two{
+	margin-left: 0;
+}
 }
