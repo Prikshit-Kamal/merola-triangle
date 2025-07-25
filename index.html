@@ -32,6 +32,7 @@
 	<link rel="stylesheet" href="assets/css/animate.css">
 	<!-- Style CSS -->
 	<link rel="stylesheet" href="assets/css/style.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -744,7 +745,7 @@ Cybersecurity isn’t a one-time solution. We continuously analyze, adapt, and e
 									</div>
 									<div class="modal-body set-form">
 										<div class="contact">
-											<form class="form" name="enq" method="post" action="contact.php"
+											<form class="form" id="homeForm" name="enq" method="post" action="contact.php"
 												onsubmit="return validation();">
 												<div class="row">
 													<div class="form-group col-md-6">
@@ -918,6 +919,7 @@ Cybersecurity isn’t a one-time solution. We continuously analyze, adapt, and e
 	<script src="assets/js/wow.min.js"></script>
 	<!-- scripts js -->
 	<script src="assets/js/scripts.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 	<script>
 		// Create code-like elements
 		const heroSection = document.querySelector('.hero-section');
@@ -976,6 +978,14 @@ Cybersecurity isn’t a one-time solution. We continuously analyze, adapt, and e
 
 		// Loop the animation
 		setInterval(draw, 33);
+
+		document.getElementById("homeForm").addEventListener("submit", function (e) {
+    var recaptcha = grecaptcha.getResponse();
+    if (!recaptcha) {
+      e.preventDefault();
+      toastr.error("reCAPTCHA is required!");
+    }
+  });
 	</script>
 </body>
 
