@@ -82,7 +82,7 @@
                 </div><!--- END Col -->
 
                 <div class="col-20 d-none d-xl-block text-end align-self-center">
-                    <a href="./contact.html#contact" class="btn_one">REQUEST A DEMO</a>
+                    <a href="https://calendly.com/merolatriangle-sales" class="btn_one">BOOK A DEMO</a>
                 </div><!--- END Col -->
 
                 <ul class="mobile_menu">
@@ -161,7 +161,7 @@
 							<div class="single_address">
 								<i class="ti-map"></i>
 								<h4>Our Location</h4>
-								<p>Raleigh, NC 27560</p>
+								<p>Raleigh, NC 27617</p>
 							</div>
 						</div><!-- END COL -->
 						<div class="col-lg-12 col-sm-4 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"
@@ -405,13 +405,40 @@
 		// Loop the animation
 		setInterval(draw, 33);
 
-		document.getElementById("contactForm").addEventListener("submit", function (e) {
-    var recaptcha = grecaptcha.getResponse();
-    if (!recaptcha) {
-      e.preventDefault();
-      toastr.error("reCAPTCHA is required!");
-    }
-  });
+  document.getElementById("contactForm").addEventListener("submit", async (e) => {
+			e.preventDefault();
+			var recaptcha = grecaptcha.getResponse();
+			if (!recaptcha) {
+				e.preventDefault();
+				toastr.error("reCAPTCHA is required!");
+			} else {
+				const form = e.target;
+				const data = {
+					fromName: form.name.value,
+					fromEmail: form.email.value,
+					subject: form.subject.value,
+					message: form.message.value
+				};
+
+				try {
+					const res = await fetch("https://mail.merola-peter.workers.dev", {
+						method: "POST",
+						headers: { "Content-Type": "application/json" },
+						body: JSON.stringify(data)
+					});
+
+					if (res.ok) {
+						window.location.href = "/thank-you.html";
+					} else {
+						const errorText = await res.text();
+						toastr.error("Failed to send message: " + errorText);
+					}
+				} catch (err) {
+					toastr.error("Network error: " + err.message);
+				}
+			}
+
+		});
 	</script>
 </body>
 
